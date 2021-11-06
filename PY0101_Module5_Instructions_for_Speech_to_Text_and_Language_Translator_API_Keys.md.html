@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.7.1/styles/default.min.css">
+  </head>
+  <body>
+    <center>
+      <img src="https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/Logos/organization_logo/organization_logo.png" width="300" alt="cognitiveclass.ai logo">
+    </center>
+    <p><strong>Time Required: 15 mins</strong></p>
+    <h3>Objective</h3>
+    <p>In this lab, you will learn:</p>
+    <ul>
+      <li>
+        <p>IBM Speech to Text Service</p>
+      </li>
+      <li>
+        <p>IBM Language Translator Service</p>
+      </li>
+    </ul>
+    <p>In this lab, you will create an instance of IBM Speech to Text and IBM Language Translator. IBM Speech to Text is a service that converts speech in audio format into text. Watson Speech to Text is a service that uses deep learning algorithms to convert speech to text. IBM Language Translator converts one language to another.</p>
+    <p>NOTE: In order to complete this the lab in this section you will be creating an IBM Cloud account and create an instance of IBM Speech to Text and IBM Language Translator and obtain their respective API Keys. A credit card is <strong>NOT</strong> required to sign up for IBM Cloud Lite account and there is no charge associated in creating a Lite plan instance of the Watson VR service.</p>
+    <h3>Pre-requisite</h3>
+    <p>You need an IBM Cloud account to create a project in Watson Studio. If you don't have an account created already, click and open this <a href="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CC0100EN-SkillsNetwork/labs/IBMCloud_accountCreation/CreateIBMCloudAccount.md.html" target="_blank" rel="external">link</a> and follow the instructions, to create an IBM Cloud account.</p>
+    <h1>Step 1: Create an instance of Language Translator service</h1>
+    <h2>Scenario</h2>
+    <p>Language Translator, which is available as a service on IBM Cloud, and a component of the IBM Cloud Pak for Data, allows you to translate text from one language to another. In this exercise, you will add an instance of the Language Translator service to your IBM Cloud account.</p>
+    <ol>
+      <li>In the <a href="https://cloud.ibm.com/catalog?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkPY0101ENSkillsNetwork19487395-2021-01-01#services" target="_blank" rel="external">IBM Cloud Catalog</a> go to the <a href="https://cloud.ibm.com/catalog/services/language-translator?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkPY0101ENSkillsNetwork19487395-2021-01-01" target="_blank" rel="external">Language Translator listing</a></li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/LT1.png" style="border: solid 1px">
+    <ol start="2">
+      <li>On the Language Translator page, select the <strong>Region</strong>, verify that the <strong>Lite</strong> plan is selected, and then click <strong>Create</strong>.</li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/LT2.png" style="border: solid 1px">
+    <ol start="3">
+      <li>Once the Language Translator instance is successfully created, you'll get the below screen. Copy the credentials and paste into a file using a text editor on your system.</li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/LT3.png" style="border: solid 1px">
+    <p><br><br></p>
+    <h1>Step 2: Create a Speech to Text Instance</h1>
+    <p>Speech to Text, which is available as a service on IBM Cloud provides an API to add speech transcription capabilities to applications. In this exercise, you will add an instance of the Speech To Text service to your IBM Cloud account.</p>
+    <ol>
+      <li>In the <a href="https://cloud.ibm.com/catalog?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDeveloperSkillsNetworkPY0101ENSkillsNetwork19487395-2021-01-01#services" target="_blank" rel="external">IBM Cloud Catalog</a>, type Speech to Text in the Search box and choose the service or go to <a href="https://cloud.ibm.com/catalog/services/speech-to-text" target="_blank" rel="external">Speech to Text Service</a></li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/STT1.png" style="border: solid 1px">
+    <ol start="2">
+      <li>On the Speech To Text Service page, select a <strong>Region</strong>, verify that the <strong>Lite</strong> plan is selected, and then click <strong>Create</strong>.</li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/STT2.png" style="border: solid 1px">
+    <ol start="3">
+      <li>Once the Speech to Text instance is successfully created, you'll be taken to the instance page. Choose the <strong>Service Credentials</strong> and copy the Auto-generated credentials and paste it into a file using the text editor in your system. You will need to use this later.</li>
+    </ol>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0101EN-SkillsNetwork/labs/Module%205/images/STT3.png" style="border: solid 1px">
+    <h2>Author(s)</h2>
+    <h4>Joseph Santarcangelo</h4>
+    <h4></h4>
+    <h2>Change log</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2020-04-30</td>
+          <td>2.4</td>
+          <td>Lavanya</td>
+          <td>Changed the images</td>
+        </tr>
+        <tr>
+          <td>2020-11-11</td>
+          <td>2.3</td>
+          <td>Malika Singla</td>
+          <td>Corrected the spell mistake</td>
+        </tr>
+        <tr>
+          <td>2020-10-05</td>
+          <td>2.2</td>
+          <td>Malika Singla</td>
+          <td>Added Effort &#x26; objective</td>
+        </tr>
+        <tr>
+          <td>2020-09-05</td>
+          <td>2.1</td>
+          <td>Malika Singla</td>
+          <td>Updated the screenshot</td>
+        </tr>
+        <tr>
+          <td>2020-08-25</td>
+          <td>2.0</td>
+          <td>Srishti</td>
+          <td>Migrated Lab to Markdown</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2020. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.43989f87.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-badge@0.1.9/highlightjs-badge.min.js"></script>
+  </body>
+</html>
